@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Cross platforms apps with Ionic Framework | Julien Renaux, AngularJS Mexico, January 16th 2016</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="author" content="Julien Renaux">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- Code syntax highlighting -->
@@ -49,14 +50,32 @@
 					<script type="text/template">
 						# Cross platforms apps with Ionic Framework
 
+						<ul style="list-style-type: none; margin-left: 0">
+							<li>
+								<i class="fa fa-external-link"></i> <a href="http://julienrenaux.fr">julienrenaux.fr</a>
+							</li>
+							<li>
+								<i class="fa fa-twitter"></i> <a href="http://twitter.com/julienrenaux">julienrenaux</a></small>
+							</li>
+							<li>
+								<i class="fa fa-github"></i> <a href="https://github.com/shprink">shprink</a></small>
+							</li>
+						</ul>
 						<p>
-							<small>Created by <a href="http://julienrenaux.fr">Julien Renaux</a> / <a href="http://twitter.com/julienrenaux">@julienrenaux</a></small>
+							<small>Slides: http://shprink.github.io/slides-cross-platforms-apps-with-ionic-framework</small>
 						</p>
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
 						## About me
+
+						<ul style="text-align: center; list-style-type: none; margin-left: 0">
+							<li class="fragment"><a href="http://www.toptal.com/resume/julien-renaux#select-just-supreme-hackers" target="_blank"><img class="plain" style="background: transparent;" width="300" data-src="./img/toptal.png" alt="Toptal"></a></li>
+							<li class="fragment"><img class="plain" style="background: transparent;" width="150" data-src="./img/angular.png" alt="angular"></li>
+							<li class="fragment"><img class="plain" style="background: transparent;" width="200" data-src="./img/ionic.png" alt="ionic"></li>
+						</ul>
+
 
 					</script>
 				</section>
@@ -81,10 +100,64 @@
 								<span class="fragment">, iOS</span>
 								<span class="fragment">, Mobile</span>
 								<span class="fragment">, Web</span>
-								<span class="fragment">, Desktop</span>
-								<span class="fragment">& Chrome</span>
+								<span class="fragment">, Desktop (Windows, OSX, Linux)</span>
 							</p>
 
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## React Native
+							<p>
+								<span class="fragment">Supported platforms:</span>
+								<span class="fragment">Android</span>
+								<span class="fragment">& iOS</span>
+							</p>
+							<p>
+								<span class="fragment">Same code base?</span>
+								<span class="fragment">Nope</span>
+							</p>
+							<span class="fragment">
+
+								// iOS
+								<TabBarIOS>
+									<TabBarIOS.Item title="React Native" selected={true}>
+										<NavigatorIOS initialRoute={{ title: 'React Native' }} />
+									</TabBarIOS.Item>
+								</TabBarIOS>
+
+								// Android
+								<DrawerLayoutAndroid renderNavigationView={()=>
+									<Text>React Native</Text>}>
+									<ProgressBarAndroid />
+								</DrawerLayoutAndroid>
+
+							</span>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Native Script
+							<p>
+								<span class="fragment">Supported platforms:</span>
+								<span class="fragment">Android</span>
+								<span class="fragment">& iOS</span>
+							</p>
+							<p>
+								<span class="fragment">Same code base?</span>
+								<span class="fragment">Yep</span>
+							</p>
+							<span class="fragment">
+
+								<Page loaded="pageLoaded">
+									<StackLayout orientation="vertical">
+										<Progress value="{{ someProperty }}" />
+										<Slider value="{{ someProperty }}" />
+									</StackLayout>
+								</Page>
+
+							</span>
+							<img class="fragment" data-src="./img/native_script_slider.png" alt="Down arrow">
 						</script>
 					</section>
 					<section data-markdown>
@@ -147,61 +220,7 @@
 
 						</script>
 					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## Why not React Native ?
-							<p>
-								<span class="fragment">Supported platforms:</span>
-								<span class="fragment">Android</span>
-								<span class="fragment">& iOS</span>
-							</p>
-							<p>
-								<span class="fragment">Same code base?</span>
-								<span class="fragment">Nope</span>
-							</p>
-							<span class="fragment">
 
-								// iOS
-								<TabBarIOS>
-									<TabBarIOS.Item title="React Native" selected={true}>
-										<NavigatorIOS initialRoute={{ title: 'React Native' }} />
-									</TabBarIOS.Item>
-								</TabBarIOS>
-
-								// Android
-								<DrawerLayoutAndroid renderNavigationView={()=>
-									<Text>React Native</Text>}>
-									<ProgressBarAndroid />
-								</DrawerLayoutAndroid>
-
-							</span>
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## Why not Native Script ?
-							<p>
-								<span class="fragment">Supported platforms:</span>
-								<span class="fragment">Android</span>
-								<span class="fragment">& iOS</span>
-							</p>
-							<p>
-								<span class="fragment">Same code base?</span>
-								<span class="fragment">Yep</span>
-							</p>
-							<span class="fragment">
-
-								<Page loaded="pageLoaded">
-									<StackLayout orientation="vertical">
-										<Progress value="{{ someProperty }}" />
-										<Slider value="{{ someProperty }}" />
-									</StackLayout>
-								</Page>
-
-							</span>
-							<img class="fragment" data-src="./img/native_script_slider.png" alt="Down arrow">
-						</script>
-					</section>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -215,7 +234,6 @@
 							<p class="fragment">Mobile: browser</p>
 							<p class="fragment">Web: browser</p>
 							<p class="fragment">Desktop: browser</p>
-							<p class="fragment">Chrome: browser</p>
 						</div>
 					</script>
 				</section>
@@ -228,15 +246,15 @@
 
 
 							<div style="text-align: left;">
-							<h4 class="fragment">Most famous:</h4>
-							<ul style="text-align: left;">
-								<li class="fragment">Network</li>
-								<li class="fragment">Camera</li>
-								<li class="fragment">Badge</li>
-								<li class="fragment">Device</li>
-								<li class="fragment">Facebook Connect</li>
-							</ul>
-							<p class="fragment">Complete list: https://cordova.apache.org/plugins/?platforms=cordova-browser</p>
+								<h4 class="fragment">Most famous:</h4>
+								<ul style="text-align: left;">
+									<li class="fragment">Network</li>
+									<li class="fragment">Camera</li>
+									<li class="fragment">Badge</li>
+									<li class="fragment">Device</li>
+									<li class="fragment">Facebook Connect</li>
+								</ul>
+								<p class="fragment">Complete list: https://cordova.apache.org/plugins/?platforms=cordova-browser%2Ccordova-ios%2Ccordova-android</p>
 							</div>
 						</script>
 					</section>
@@ -263,7 +281,15 @@
 						<script type="text/template">
 							## Platform specific plugins
 
-
+							<div style="text-align: left;">
+								<ul style="text-align: left;">
+									<li class="fragment">Loading</li>
+									<li class="fragment">Action Sheet</li>
+									<li class="fragment">Alert, Confirm</li>
+									<li class="fragment">Image picker</li>
+									<li class="fragment">Push notification</li>
+								</ul>
+							</div>
 
 							<aside class="notes">
 						        Ok we saw how easy the code could be when using cross Platform plugins. But what if the hardware API is different?
@@ -272,9 +298,9 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## Network
+							## Loading
 
-
+							<img data-src="./img/loading_ios.png" alt="Loading iOS">
 						</script>
 					</section>
 				</section>
