@@ -328,15 +328,6 @@
 						<script type="text/template">
 							## First we need to require the right set of files per platform
 						</script>
-						<div style="text-align: left;">
-							<ul style="text-align: left;">
-								<li class="fragment">Loading</li>
-								<li class="fragment">Action Sheet</li>
-								<li class="fragment">Alert, Confirm</li>
-								<li class="fragment">Image picker</li>
-								<li class="fragment">Push notification</li>
-							</ul>
-						</div>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -386,14 +377,66 @@
 
 							<div style="text-align: left;">
 								<ul style="text-align: left;">
-									<li class="fragment">Webpack</li>
+									<li class="fragment">ES6 Classes / TypeScript Interfaces</li>
 									<li class="fragment">CommonJS / ES6 modules</li>
-									<li class="fragment">TypeScript Interfaces</li>
+									<li class="fragment">Webpack</li>
 								</ul>
 							</div>
 
 							<aside class="notes">
 						        Ok we saw how easy the code could be when using cross Platform plugins. But what if the hardware API is different?
+						    </aside>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## ES6 Classes / TypeScript Interfaces (optional)
+
+								interface ClockInterface {
+								    currentTime: Date;
+								}
+								class Clock implements ClockInterface  {
+								    currentTime: Date;
+								    // ALL THE COMMON LOGIC
+								}
+								class ClockWeb extends Clock implements ClockInterface  {
+								    currentTime: Date;
+								    // PLATFORM BROWSER SPECIFIC CODE
+								}
+								class ClockAndroid extends Clock implements ClockInterface  {
+								    currentTime: Date;
+								    // PLATFORM ANDROID SPECIFIC CODE
+								}
+
+							<aside class="notes">
+								If you have some experience with Java, PHP, C# you already know what interfaces are for.
+								Interfaces are contracts that Classes must respect.
+								Classes are the perfect tool to extend/overwrite common behavior into a specific one.
+						    </aside>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## CommonJS / ES6 modules
+
+							### Export a module
+
+								# CommonJS
+							    module.exports = function(){}
+
+								# ES6 Module
+							    export default function(){}
+
+							### Import a module
+
+								# CommonJS
+							    var module = require('./pathToModule')
+
+								# ES6 Module
+							    import module from './pathToModule';
+
+							<aside class="notes">
+								With CommonJS / ES6 modules we can easily create reusable piece of code. This modularity is essential when it comes to manipulate platform specific APIs
 						    </aside>
 						</script>
 					</section>
@@ -407,7 +450,7 @@
 	          height: 100%;
 	          opacity: 0.1; z-index: -1;"></div>
 		                    <h2>Webpack is a module bundler</h2>
-		                    <p>Preprocess javascript and css files to generate static assets for production:</p>
+		                    <p>Preprocess any type of files and generate static assets:</p>
 		                    <br/>
 		                    <ul>
 		                        <li>Compilers</li>
@@ -424,26 +467,105 @@
 						<script type="text/template">
 							## Webpack dependency tree
 
-							<img data-src="./img/dependency_tree.jpg" height="500" alt="dependency_tree">
+							<div class="grid">
+								<div class="unit two-thirds fragment">
+									<img data-src="./img/dependency_tree.jpg" height="400" alt="dependency_tree">
+								</div>
+								<div class="unit one-third fragment"  style="position:relative;">
+									<i class="fa fa-chevron-right" style="position: absolute; left: -40px; top:200px;"></i>
+									<img data-src="./img/webpack_static_assets.jpg" alt="Loading Ionic">
+									<h3>Static assets</h3>
+								</div>
+							</div>
 
 							<aside class="notes">
 								As you can see we can require any type of files with webpack, js, css or images.
 								The tree root here is called an entry point. This intry point will require other dependencies that will call other dependencies and so on.
-								At the end you end up with a large dependency tree.
+								[NEXT]
+								At the end you end up with a large dependency tree that compile into static assets.
+								Now that we have the big picture about what webpack is how to require files and create a tree like that?
 						    </aside>
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## Webpack dependency tree
+							## Better tools: Summary
 
-							<img data-src="./img/dependency_tree.jpg" height="500" alt="dependency_tree">
+							<div style="text-align: left;">
+								<ul style="text-align: left;">
+									<li class="fragment">ES6 Classes / TypeScript Interfaces <br/> <small>Facilitate inheritance</small></li>
+									<li class="fragment">CommonJS / ES6 modules <br/> <small>Towards modularity</small></li>
+									<li class="fragment">Webpack <br/> <small>App bundle</small></li>
+								</ul>
+							</div>
 
 							<aside class="notes">
-								As you can see we can require any type of files with webpack, js, css or images.
-								The tree root here is called an entry point. This intry point will require other dependencies that will call other dependencies and so on.
-								At the end you end up with a large dependency tree.
+						        Ok we saw how easy the code could be when using cross Platform plugins. But what if the hardware API is different?
 						    </aside>
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Create a cross platform Loading service
+
+							<div class="grid">
+								<div class="unit one-third fragment">
+									<img data-src="./img/loading_ios.png" alt="Loading iOS">
+									<h3>iOS</h3>
+								</div>
+								<div class="unit one-third fragment">
+									<img data-src="./img/loading_android.png" alt="Loading Android">
+									<h3>Android</h3>
+								</div>
+								<div class="unit one-third fragment">
+									<img data-src="./img/loading_ionic.png" alt="Loading Ionic">
+									<h3>Ionic</h3>
+								</div>
+							</div>
+
+							<aside class="notes">
+						        With all the tools that we learnt, let's try to create a cross platform Loading service.
+								One API to display the following loading UI on each platform
+						    </aside>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Architecture
+
+								loading/
+								├── index.ts
+								├── interface.ts
+								├── service.cordova.ts
+								├── service.ionic.ts
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## After Build
+
+								var crossPlatformLoading;
+								if (false)
+								    crossPlatformLoading = require("./service.cordova.ts");
+								if (false)
+								    crossPlatformLoading = require("./service.cordova.ts");
+								if (true)
+								    crossPlatformLoading = __webpack_require__(18);
+								if (false)
+								    crossPlatformLoading = require("./service.ionic.ts");
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## After minification
+
+								var crossPlatformLoading;
+								if (true)
+								    crossPlatformLoading = __webpack_require__(18);
 						</script>
 					</section>
 				</section>
