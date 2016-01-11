@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Cross platforms apps with Ionic Framework | Julien Renaux, AngularJS Mexico, January 16th 2016</title>
+		<title>Cross platform apps with Ionic Framework | Julien Renaux, AngularJS Mexico, January 16th 2016</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Julien Renaux">
@@ -49,7 +49,7 @@
 			<div class="slides">
 				<section data-markdown>
 					<script type="text/template">
-						# Cross platforms apps with Ionic Framework
+						# Cross platform apps with Ionic Framework
 
 						<ul style="list-style-type: none; margin-left: 0">
 							<li>
@@ -84,7 +84,20 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						## What's a Cross platforms app?
+						## Table of content
+
+						<ol style="text-align: left;">
+							<li class="fragment">What's the best tech stack?</li>
+							<li class="fragment">Cross platform plugins</li>
+							<li class="fragment">Platform specific plugins</li>
+							<li class="fragment">Conclusion</li>
+							<li class="fragment">Questions</li>
+						</ol>
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## What's a Cross platform app?
 
 						<blockquote class="fragment">
 							One source code to rule all platforms
@@ -94,18 +107,14 @@
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							## Tech stack
+							## 1. What's the best tech stack?
+							##### <small>Android, iOS, Mobile, Web and Desktop (Windows, OSX, Linux)</small>
 
-							#### Targetted platforms:
-
-							<p>
-								<span class="fragment">Android</span>
-								<span class="fragment">, iOS</span>
-								<span class="fragment">, Mobile</span>
-								<span class="fragment">, Web</span>
-								<span class="fragment">, Desktop (Windows, OSX, Linux)</span>
-							</p>
-
+							<ul style="text-align: left;">
+								<li class="fragment">React Native</li>
+								<li class="fragment">Native Script</li>
+								<li class="fragment">Ionic Framework / Cordova / Electron</li>
+							</ul>
 						</script>
 					</section>
 					<section data-markdown>
@@ -118,7 +127,7 @@
 							</p>
 							<p>
 								<span class="fragment">Same code base?</span>
-								<span class="fragment">Nope</span>
+								<span class="fragment">No</span>
 							</p>
 							<span class="fragment">
 
@@ -148,7 +157,7 @@
 							</p>
 							<p>
 								<span class="fragment">Same code base?</span>
-								<span class="fragment">Yep</span>
+								<span class="fragment">Yes</span>
 							</p>
 							<span class="fragment">
 
@@ -161,6 +170,22 @@
 
 							</span>
 							<img class="fragment" data-src="./img/native_script_slider.png" alt="Down arrow">
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Ionic Framework / Cordova / Electron
+							<p>
+								<span class="fragment">Supported platforms:</span>
+								<span class="fragment">Android</span>
+								<span class="fragment">, iOS</span>
+								<span class="fragment">, Windows Phone</span>
+								<span class="fragment">, Browser and more ...</span>
+							</p>
+							<p>
+								<span class="fragment">Same code base?</span>
+								<span class="fragment">Yes</span>
+							</p>
 						</script>
 					</section>
 					<section data-markdown>
@@ -179,7 +204,7 @@
 							* AngularJS powered
 							* 34th most popular OSS project (20,000+ stars on GitHub)
 							* ONE MILLION apps built with the SDK
-							* It's over 2 years old (still have support)
+							* Over 2 years old (still have support & v2 is coming)
 
 							<aside class="notes">
 								<p>Ionic seems to have taken the world by storm</p>
@@ -190,9 +215,22 @@
 						<script type="text/template">
 							## Cordova
 
+
+							### Cordova platforms
+
+							    cordova platform add <platform>
+
+							<div style="text-align: left;">
+								<p class="fragment">Android: android</p>
+								<p class="fragment">iOS: ios</p>
+								<p class="fragment">Mobile: browser</p>
+								<p class="fragment">Web: browser</p>
+								<p class="fragment">Desktop: browser</p>
+							</div>
+
 						</script>
 					</section>
-					<section data-markdown>
+					<!-- <section data-markdown>
 						<script type="text/template">
 							## ngCordova
 
@@ -216,7 +254,7 @@
 									// ...
 								});
 						</script>
-					</section>
+					</section> -->
 					<section data-markdown>
 						<script type="text/template">
 							## Electron
@@ -225,25 +263,10 @@
 					</section>
 
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Cordova platforms
-
-						    cordova platform add <platform>
-
-						<div style="text-align: left;">
-							<p class="fragment">Android: android</p>
-							<p class="fragment">iOS: ios</p>
-							<p class="fragment">Mobile: browser</p>
-							<p class="fragment">Web: browser</p>
-							<p class="fragment">Desktop: browser</p>
-						</div>
-					</script>
-				</section>
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							## Cross platform plugins
+							## 2. Cross platform plugins
 
 							    cordova plugin add <name>
 
@@ -278,11 +301,16 @@
 								}));
 						</script>
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## DEMO
+						</script>
+					</section>
 				</section>
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							## Platform specific plugins
+							## 3. Platform specific plugins
 
 							<div style="text-align: left;">
 								<ul style="text-align: left;">
@@ -321,59 +349,7 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## How to handle platform specific plugins?
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## First we need to require the right set of files per platform
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## Let's try with Gulp/Grunt
-
-							    var commonDependencies = [
-								    variables.bower + 'moment/moment.js',
-								    variables.bower + 'angular/angular.js',
-								    variables.bower + 'ionic/ionic.js'
-								]
-
-								var browserDependencies = commonDependencies.concat([
-								    variables.bower + 'angular-inview/angular-inview.js',
-								    variables.bower + 'angular-bootstrap/ui-bootstrap-tpls.js',
-								    variables.bower + 'angular-loading-bar/build/loading-bar.js'
-								]);
-
-								var cordovaDependencies = commonDependencies.concat([
-								    variables.bower + 'ngCordova/dist/ng-cordova.js',
-								    variables.bower + 'ionic-ion-tinder-cards/ionic.tdcards.js',
-								    variables.bower + 'angulartics/src/angulartics-ga-cordova.js'
-								]);
-
-							<aside class="notes">
-								Need to do that for all type of dependencies, CSS, images etc.
-								Hard to maintain, hard to work with several developers
-						    </aside>
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## Let's try with Gulp/Grunt
-
-							<img data-src="./img/gulp_dependency_hell.png" height="500" alt="Gulp hell">
-
-							<aside class="notes">
-								Need to do that for all type of dependencies, CSS, images etc.
-								Hard to maintain, hard to work with several developers
-						    </aside>
-						</script>
-					</section>
-				</section>
-				<section>
-					<section data-markdown>
-						<script type="text/template">
-							## We need better tools
+							## Recommended tools
 
 							<div style="text-align: left;">
 								<ul style="text-align: left;">
@@ -390,7 +366,8 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## ES6 Classes / TypeScript Interfaces (optional)
+							## ES6 Classes / TypeScript Interfaces
+							#### Facilitate inheritance
 
 								interface ClockInterface {
 								    currentTime: Date;
@@ -418,6 +395,7 @@
 					<section data-markdown>
 						<script type="text/template">
 							## CommonJS / ES6 modules
+							#### Create modular code
 
 							### Export a module
 
@@ -442,22 +420,16 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<div style="
-	          background: url(img/webpack.png) no-repeat center center;
-	          background-size: 390px 390px;
-	          position: absolute;
-	          width: 100%;
-	          height: 100%;
-	          opacity: 0.1; z-index: -1;"></div>
-		                    <h2>Webpack is a module bundler</h2>
-		                    <p>Preprocess any type of files and generate static assets:</p>
-		                    <br/>
-		                    <ul>
-		                        <li>Compilers</li>
-		                        <li>Linting</li>
-		                        <li>Concatenation</li>
-		                        <li>Minification</li>
-		                    </ul>
+							## Webpack
+							#### Bundle dependencies
+
+		                    Preprocess any type of file and generate static assets:
+
+		                    * Compilers
+		                    * Linting
+							* Concatenation
+							* Minification
+
 							<p>
 								<small>Recommended reading: http://julienrenaux.fr/2015/03/30/introduction-to-webpack-with-practical-examples</small>
 							</p>
@@ -479,7 +451,7 @@
 							</div>
 
 							<aside class="notes">
-								As you can see we can require any type of files with webpack, js, css or images.
+								As you can see we can require any type of file with webpack, js, css or images.
 								The tree root here is called an entry point. This intry point will require other dependencies that will call other dependencies and so on.
 								[NEXT]
 								At the end you end up with a large dependency tree that compile into static assets.
@@ -494,8 +466,8 @@
 							<div style="text-align: left;">
 								<ul style="text-align: left;">
 									<li class="fragment">ES6 Classes / TypeScript Interfaces <br/> <small>Facilitate inheritance</small></li>
-									<li class="fragment">CommonJS / ES6 modules <br/> <small>Towards modularity</small></li>
-									<li class="fragment">Webpack <br/> <small>App bundle</small></li>
+									<li class="fragment">CommonJS / ES6 modules <br/> <small>Create modular code</small></li>
+									<li class="fragment">Webpack <br/> <small>Bundle dependencies</small></li>
 								</ul>
 							</div>
 
@@ -504,8 +476,6 @@
 						    </aside>
 						</script>
 					</section>
-				</section>
-				<section>
 					<section data-markdown>
 						<script type="text/template">
 							## Create a cross platform Loading service
@@ -568,6 +538,18 @@
 								    crossPlatformLoading = __webpack_require__(18);
 						</script>
 					</section>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 4. Conclusion
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 5. Questions?
+
+					</script>
 				</section>
 
 				<!-- <section>
