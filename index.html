@@ -391,9 +391,6 @@
 						<script type="text/template">
 							## 2. Cross platform plugins
 
-							    cordova plugin add <name>
-
-
 							<div style="text-align: left;">
 								<ul style="text-align: left;">
 									<li class="fragment">Network</li>
@@ -434,7 +431,8 @@
 								);
 
 							<aside class="notes">
-								1. You can have network information just with this simple piece of code.
+								1. Network plugin can be install like this.<br/>
+								2. With ngCordova we can have network information just with this simple piece of code.
 							</aside>
 						</script>
 					</section>
@@ -465,9 +463,9 @@
 							</div>
 
 							<aside class="notes">
-						        1. Ok we just saw how easy the code could be when using cross Platform plugins. But what if the plugin API is different per platform?<br/>
+						        1. Ok we just saw how easy the code could be when using cross Platform plugins. But what if the plugin API is different per platform this time?<br/>
 								2. A comprehensive example is the loading UI<br/>
-								3. In next section we will see how to create an Angular service that unifies these APIs but for now we need to learn about the tools that can facilitate that work.
+								3. In few minutes we will see how to create an Angular service that unifies these APIs but for now we need to learn about the tools that can facilitate that work.
 						    </aside>
 						</script>
 					</section>
@@ -515,10 +513,10 @@
 
 							<aside class="notes">
 								1. If you have some experience with Java, PHP, C# you already know what interfaces are for.<br/>
-								1. Interfaces are contracts that Classes MUST respect.
-								1. Here we force any Classes that implements the ClockInterface to have a property named currentTime which is a Date.
-								2. We can then create a Clock class that could contain all the cross platform code
-								3. And a ClockAndroid class that could contain android specific code.
+								1. Interfaces are contracts that Classes MUST respect.<br/>
+								1. Here we force any Classes that implements the ClockInterface to have a property named currentTime which is a Date.<br/>
+								2. We can then create a Clock class that could contain all the cross platform code<br/>
+								3. And a ClockAndroid class that could contain android specific code.<br/>
 								4. As you can see Classes are the perfect tool to extend/overwrite common behavior into a specific one.
 						    </aside>
 						</script>
@@ -546,8 +544,8 @@
 
 							<aside class="notes">
 								CommonJS was created to handle modules outside the browser<br/>
-								With CommonJS / ES6 modules we can easily create reusable piece of code. <br/>
-								This modularity is a MUST if you want to decouple your code and manipulate platform specific APIs
+								With CommonJS / ES6 modules we can easily create / import and export reusable piece of code. <br/>
+								This modularity is a MUST have if you want to decouple distinct pieces of functionality into modules
 						    </aside>
 						</script>
 					</section>
@@ -569,11 +567,16 @@
 							<p>
 								<small>Recommended reading: http://julienrenaux.fr/2015/03/30/introduction-to-webpack-with-practical-examples</small>
 							</p>
+							<aside class="notes">
+								1. Webpack is a module bundler that can generate static assets from any type of files.<br/>
+								2. Here we have a dependency tree. The tree root here is called an entry point. This intry point will require other dependencies that will require other dependencies and so on.<br/>
+								3. At the end you end up with a large dependency tree that compile into static assets.
+						    </aside>
 						</script>
                 	</section>
 					<section data-markdown>
 						<script type="text/template">
-							## Webpack dependency tree
+							## Webpack conditional import
 
 							<div class="grid">
 								<div class="unit half fragment">
@@ -609,11 +612,10 @@
 							</div>
 
 							<aside class="notes">
-								As you can see we can require any type of file with webpack, js, css or images.
-								The tree root here is called an entry point. This intry point will require other dependencies that will call other dependencies and so on.
-								[NEXT]
-								At the end you end up with a large dependency tree that compile into static assets.
-								Now that we have the big picture about what webpack is how to require files and create a tree like that?
+								1. With webpack we can create conditional import upon the platform that we want to build.<br/>
+								2. Using Webpack's DefinePlugin you can inject any variable into your JS files.<br/>
+								3. Upon these variables we can import the right content for the platform.<br/>
+								4. Setting IS_BROWSER to true will remove an entire tree branch and build Browser only code.
 						    </aside>
 						</script>
 					</section>
@@ -630,7 +632,9 @@
 							</div>
 
 							<aside class="notes">
-
+								1. We learnt that using ES6 Classes and TypeScript Interfaces can facilitate inheritance but also allow us to make sure a specific API will be implemented.<br/>
+								2. We learnt that ES6 Modules and CommonJS is a MUST have if you want to decouple distinct pieces of functionality into modules<br/>
+								3. To finish we learnt that with Webpack and conditional import we can build code that is 100% platform specific<br/>
 						    </aside>
 						</script>
 					</section>
@@ -653,10 +657,12 @@
 								</div>
 							</div>
 
+							***Goal***: One API to control all platforms
+
 							<aside class="notes">
 						        With all the tools that we have just learnt, let's try to create a cross platform Loading service.<br/>
 								The goal is to have one API to control all platforms<br/>
-								Luckely for us iOS and Android already has a common API
+								Luckely for us iOS and Android already has a common API through a Cordova plugin
 						    </aside>
 						</script>
 					</section>
